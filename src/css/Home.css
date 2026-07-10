@@ -6,11 +6,18 @@
   min-height: 70vh;
   /* padding: 30px; */
   color: white;
+  background: #f5f7fb;
+    /* background:
+  linear-gradient(
+    135deg,
+    #667eea,
+    #764ba2
+  ); */
 }
 
 .home-container h2,
 .home-container p {
-  background: rgba(0, 0, 0, 0.5);
+  /* background: rgba(0, 0, 0, 0.5); */
   /* padding: 10px; */
   border-radius: 5px;
 }

@@ -85,7 +85,7 @@ export default function Navbar({ theme, setTheme }) {
         >
           About
         </NavLink> */}
-            <button
+            <button className="logout-btn"
               onClick={() => {
                 localStorage.removeItem("token");
                 localStorage.removeItem("user");
@@ -95,7 +95,7 @@ export default function Navbar({ theme, setTheme }) {
               Logout
             </button>
 
-            <ThemeToggle theme={theme} setTheme={setTheme} />
+            {/* <ThemeToggle theme={theme} setTheme={setTheme} /> */}
           </>
         )}
       </div>

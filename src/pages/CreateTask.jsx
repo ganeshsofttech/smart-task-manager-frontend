@@ -5,6 +5,7 @@ import api from "../Services/api";
 import { useLocation } from "react-router-dom";
 
 const CreateTask = () => {
+  const [users, setUsers] = useState([]);
   const [task, setTask] = useState({
     title: "",
     description: "",
@@ -86,6 +87,19 @@ const CreateTask = () => {
     }
   };
 
+
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const res = await api.get("http://localhost:3000/api/auth/getUser");
+        setUsers(res.data);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    fetchUsers();
+  }, []);
   return (
     <div className="task-container">
       <div className="task-card">
@@ -153,6 +167,7 @@ const CreateTask = () => {
 
           {/* Assigned User */}
           <div className="input-group">
+
             <label>Assign To</label>
 
             <select
@@ -162,10 +177,13 @@ const CreateTask = () => {
             >
               <option value="">--Select User--</option>
 
-              <option value="6a507cbe891cf770bfd4e68c">John Doe</option>
-
-              <option value="6a507cbe891cf770bfd4e68c">Alex Smith</option>
+              {users.map((user) => (
+                <option key={user._id} value={user._id}>
+                  {user.name}
+                </option>
+              ))}
             </select>
+
           </div>
           <button type="submit" className="submit-btn">
             {editId ? "Update Task" : "Create Task"}

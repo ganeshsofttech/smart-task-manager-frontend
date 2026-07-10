@@ -64,7 +64,13 @@ body {
 
 /* Navbar */
 nav {
-  background-color: #1976d2;
+  /* background-color: #1976d2; */
+      background:
+  linear-gradient(
+    135deg,
+    #667eea,
+    #764ba2
+  );
   color: white;
   padding: 15px 25px;
 }
@@ -121,7 +127,13 @@ button {
 /* Footer */
 footer {
   width: 100%;
-  background-color: #1976d2;
+  /* background-color: #1976d2; */
+    background:
+  linear-gradient(
+    135deg,
+    #667eea,
+    #764ba2
+  );
   color: white;
   text-align: center;
   padding: 15px;

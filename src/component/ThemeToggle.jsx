@@ -6,9 +6,11 @@ function ThemeToggle({ theme, setTheme }) {
   };
 
   return (
-    <button onClick={toggleTheme} style={styles.button}>
-      {theme === "light" ? "🌙 Dark Mode" : "☀️ Light Mode"}
+    <button className="theme-toggle-btn"
+      onClick={toggleTheme} >
+      {theme === "light" ? "🌙 " : "☀️ "}
     </button>
+
   );
 }
 

@@ -9,17 +9,22 @@
   align-items: flex-start;
 
   padding: 40px 20px;
-
-  background:
+background: #f5f7fb;
+  /* background:
   linear-gradient(
     135deg,
     #667eea,
     #764ba2
-  );
+  ); */
 
 }
 
-
+.form-title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 28px;
+  font-weight: 600;
+}
 
 .task-card {
 

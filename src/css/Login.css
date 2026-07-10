@@ -7,11 +7,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(
+  /* background: linear-gradient(
     135deg,
     #667eea,
     #764ba2
-  );
+  ); */
+  background: #f5f7fb;
 }
 
 

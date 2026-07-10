@@ -6,8 +6,8 @@
   justify-content: center;
 
   align-items: center;
-
-  background: linear-gradient(135deg, #667eea, #764ba2);
+background: #f5f7fb;
+  /* background: linear-gradient(135deg, #667eea, #764ba2); */
 }
 
 .register-card {
