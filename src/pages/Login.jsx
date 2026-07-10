@@ -67,7 +67,8 @@ const Login = () => {
       //   JSON.stringify(response.data.user)
       // );
       alert("✅ Login successful.");
-       navigate("/home");
+      window.dispatchEvent(new Event("storage"));
+      navigate("/home");
     } catch (error) {
       console.log(error);
 

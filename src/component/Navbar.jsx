@@ -1,10 +1,27 @@
 import { NavLink } from "react-router-dom";
 import ThemeToggle from "./ThemeToggle";
 import "../css/Navbar.css";
+import { useEffect, useState } from "react";
 
 import onboardingImage from "../assets/onboarding.png";
 
 export default function Navbar({ theme, setTheme }) {
+  const [token, setToken] = useState(localStorage.getItem("token"));
+
+  useEffect(() => {
+    const updateToken = () => {
+      setToken(localStorage.getItem("token"));
+    };
+
+    window.addEventListener("storage", updateToken);
+
+    return () => {
+      window.removeEventListener("storage", updateToken);
+    };
+  }, []);
+
+  // const token = localStorage.getItem("token");
+
   const activeStyle = {
     color: "red",
     fontWeight: "bold",
@@ -21,34 +38,41 @@ export default function Navbar({ theme, setTheme }) {
         alt="Task Management" />
       </NavLink> */}
       <div className="nav-links">
-        <NavLink
-          to="/"
-          style={({ isActive }) => (isActive ? activeStyle : {})}
-        >
+        {/* <NavLink to="/" style={({ isActive }) => (isActive ? activeStyle : {})}>
           Login
-        </NavLink>
-                <NavLink
-          to="/home"
-          style={({ isActive }) => (isActive ? activeStyle : {})}
-        >
-          Home
-        </NavLink>
+        </NavLink> */}
+        {!token && (
+          <NavLink
+            to="/"
+            style={({ isActive }) => (isActive ? activeStyle : {})}
+          >
+            Login
+          </NavLink>
+        )}
+        {token && (
+          <>
+            <NavLink
+              to="/home"
+              style={({ isActive }) => (isActive ? activeStyle : {})}
+            >
+              Home
+            </NavLink>
 
-        <NavLink
-          to="/createtask"
-          style={({ isActive }) => (isActive ? activeStyle : {})}
-        >
-          Create Task
-        </NavLink>
+            <NavLink
+              to="/createtask"
+              style={({ isActive }) => (isActive ? activeStyle : {})}
+            >
+              Create Task
+            </NavLink>
 
-        <NavLink
-          to="/taskdetails"
-          style={({ isActive }) => (isActive ? activeStyle : {})}
-        >
-          Task Details
-        </NavLink>
+            <NavLink
+              to="/taskdetails"
+              style={({ isActive }) => (isActive ? activeStyle : {})}
+            >
+              Task Details
+            </NavLink>
 
-        {/* <NavLink
+            {/* <NavLink
           to="/contact"
           style={({ isActive }) => (isActive ? activeStyle : {})}
         >
@@ -61,8 +85,19 @@ export default function Navbar({ theme, setTheme }) {
         >
           About
         </NavLink> */}
+            <button
+              onClick={() => {
+                localStorage.removeItem("token");
+                localStorage.removeItem("user");
+                window.location.href = "/";
+              }}
+            >
+              Logout
+            </button>
 
-        <ThemeToggle theme={theme} setTheme={setTheme} />
+            <ThemeToggle theme={theme} setTheme={setTheme} />
+          </>
+        )}
       </div>
     </nav>
   );

@@ -124,6 +124,7 @@ const CreateTask = () => {
             <label>Status</label>
 
             <select name="status" value={task.status} onChange={handleChange}>
+              <option value="">--Select Status--</option>
               <option value="Pending">Pending</option>
 
               <option value="In Progress">In Progress</option>
@@ -141,6 +142,7 @@ const CreateTask = () => {
               value={task.Priority}
               onChange={handleChange}
             >
+              <option value="">--Select Priority--</option>
               <option value="High">High</option>
 
               <option value="Medium">Medium</option>
@@ -158,7 +160,7 @@ const CreateTask = () => {
               value={task.assignedTo}
               onChange={handleChange}
             >
-              <option value="">Select User</option>
+              <option value="">--Select User--</option>
 
               <option value="6a507cbe891cf770bfd4e68c">John Doe</option>
 
