@@ -1,0 +1,129 @@
+:root {
+  --text: #333;
+  --text-heading: #111;
+  --bg: #ffffff;
+  --card-bg: #ffffff;
+  --border: #e5e4e7;
+  --accent: #1976d2;
+}
+
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+
+/* Body */
+body {
+  font-family: Arial, sans-serif;
+}
+
+
+/* Main App */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+}
+
+
+/* Light Theme */
+.app.light {
+  background-color: var(--bg);
+  color: var(--text);
+
+  --text: #333;
+  --text-heading: #111;
+  --card-bg: #ffffff;
+  --border: #ddd;
+}
+
+
+/* Dark Theme */
+.app.dark {
+  background-color: #121212;
+  color: #eeeeee;
+
+  --text: #eeeeee;
+  --text-heading: #ffffff;
+  --card-bg: #1e1e1e;
+  --border: #444;
+}
+
+
+/* Navbar */
+nav {
+  background-color: #1976d2;
+  color: white;
+  padding: 15px 25px;
+}
+
+
+/* Content area */
+.content {
+  flex: 1;
+  padding: 20px;
+}
+
+
+/* Headings */
+h1,
+h2,
+h3,
+h4 {
+  color: var(--text-heading);
+}
+
+
+/* Links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.app.dark a {
+  color: #90caf9;
+}
+
+
+/* Employee Cards */
+.employee-card {
+  background-color: var(--card-bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+
+/* Buttons */
+button {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+/* Footer */
+footer {
+  width: 100%;
+  background-color: #1976d2;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: auto;
+}
