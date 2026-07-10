@@ -23,3 +23,16 @@ ubuntu@ip-172-31-41-201:~$ history
    56  docker ps -a
    57  docker images
    59  docker run -it -d --name container-new ubuntu:18.04
+
+   66  #Docker lifecycle 02
+   67  #Docker container --> Make Changes --> Commit --> Image --> COntainer(s)
+   68  docker ps
+   69  #Command to get inside the container
+   70  docker exec -it 57ad911b443b bash
+   71  docker ps
+   72  docker commit 57ad911b443b custom-apache2
+   73  docker images
+   74  docker run -it -d --name new-apache custom-apache2:latest
+   75  docker ps -a
+   76  docker exec -it e61445874af8 bash
+   77  history
