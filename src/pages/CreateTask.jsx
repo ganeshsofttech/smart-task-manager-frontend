@@ -2,14 +2,33 @@ import { useEffect, useState } from "react";
 import "../css/TaskForm.css";
 import axios from "axios";
 import api from "../Services/api";
+import { useLocation } from "react-router-dom";
+
 const CreateTask = () => {
   const [task, setTask] = useState({
     title: "",
     description: "",
-    status: "Pending",
-    Priority: "Medium",
+    status: "",
+    Priority: "",
     assignedTo: "",
   });
+  const [editId, setEditId] = useState(null);
+  const location = useLocation();
+
+  const edittask = location.state?.task;
+  useEffect(() => {
+    if (edittask) {
+      setTask({
+        title: edittask.title,
+        description: edittask.description,
+        status: edittask.status,
+        Priority: edittask.Priority,
+        assignedTo: edittask.assignedTo,
+      });
+
+      setEditId(edittask._id);
+    }
+  }, [edittask]);
 
   const handleChange = (e) => {
     setTask({
@@ -22,26 +41,56 @@ const CreateTask = () => {
     e.preventDefault();
 
     console.log(task);
+    if (editId) {
+      // Update
 
-    // axios.post("/api/tasks", task)
-    api
-      .post("http://localhost:3000/api/tasks/createTask", task)
-      .then((response) => {
-        console.log("Task Created:", response.data);
-        alert("✅ Created Successfully.");
-      })
-      .catch((error) => {
-        console.log(error);
-        alert(error);
-      });
+      api
+        .put(`http://localhost:3000/api/tasks/updateTask/${editId}`, task)
+        .then((response) => {
+          console.log(response.data);
+          alert("✅ Updated Successfully.");
 
-
+          setTask({
+            title: "",
+            description: "",
+            status: "",
+            Priority: "",
+            assignedTo: "",
+          });
+        })
+        .catch((error) => {
+          console.log(error);
+          alert(error);
+        });
+      // setEditEmployee(null);
+      setEditId(null);
+    } else {
+      // axios.post("/api/tasks", task)
+      api
+        .post("http://localhost:3000/api/tasks/createTask", task)
+        .then((response) => {
+          console.log("Task Created:", response.data);
+          alert("✅ Created Successfully.");
+          setTask({
+            title: "",
+            description: "",
+            status: "Pending",
+            Priority: "Medium",
+            assignedTo: "",
+          });
+        })
+        .catch((error) => {
+          console.log(error);
+          alert(error);
+        });
+    }
   };
 
   return (
     <div className="task-container">
       <div className="task-card">
-        <h2>Create Task</h2>
+        {/* <h2>Create Task</h2> */}
+        <h2 className="form-title">{editId ? "Update" : "Create"} Task</h2>
 
         <form onSubmit={handleSubmit}>
           {/* Title */}
@@ -116,8 +165,10 @@ const CreateTask = () => {
               <option value="6a507cbe891cf770bfd4e68c">Alex Smith</option>
             </select>
           </div>
-
-          <button type="submit">Create Task</button>
+          <button type="submit" className="submit-btn">
+            {editId ? "Update Task" : "Create Task"}
+          </button>
+          {/* <button type="submit">Create Task</button> */}
         </form>
       </div>
     </div>

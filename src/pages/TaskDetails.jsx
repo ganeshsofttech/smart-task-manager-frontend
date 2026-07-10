@@ -78,8 +78,19 @@ const TaskDashboard = () => {
             </div>
 
             <div className="actions">
-              <button className="edit">Edit</button>
-
+              {/* <button className="edit">Edit</button> */}
+              <button
+                className="edit"
+                onClick={() => {
+                  navigate("/createtask", {
+                state: {
+                  task: task,
+                },
+              });
+                }}
+              >
+                Edit
+              </button>
               <button className="delete" onClick={() => deleteTask(task._id)}>
                 Delete
               </button>
