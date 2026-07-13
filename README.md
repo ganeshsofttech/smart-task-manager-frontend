@@ -36,3 +36,12 @@ ubuntu@ip-172-31-41-201:~$ history
    75  docker ps -a
    76  docker exec -it e61445874af8 bash
    77  history
+
+
+   FROM ubuntu
+RUN apt update
+RUN apt install apache2 -y
+#COPY source destination
+COPY . /var/www/html/
+#ENTRYPOINT = Commands to execute during container start time
+ENTRYPOINT apachectl -D FOREGROUND
