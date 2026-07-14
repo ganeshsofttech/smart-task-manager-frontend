@@ -17,57 +17,35 @@ function App() {
   const [currentPage, setCurrentPage] = useState("home");
   const [theme, setTheme] = useState("light");
 
-  const renderPage = () => {
-    switch (currentPage) {
-      case "about":
-        return <About />;
-      case "contact":
-        return <Contact />;
-      case "registeremployee":
-        return <CreateTask />;
-      case "employees":
-        return <TaskDetails />;
-      default:
-        return <Home />;
-    }
-  };
-
   return (
     <div className={`app ${theme}`}>
-      {/* <Header
-        currentPage={currentPage}
-        setCurrentPage={setCurrentPage}
-        theme={theme}
-        setTheme={setTheme}
-      />
-      <main style={{ padding: "20px" }}>{renderPage()}</main> */}
 
 
-      <Navbar  
+      <Navbar
         theme={theme}
         setTheme={setTheme}
-        
+
       />
-{/* <Navbar /> */}
+      {/* <Navbar /> */}
       <hr />
       <main className="content">
-      <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-         <Route path="/home" element={<Home />} />
-        <Route
-          path="/createtask"
-          element={<CreateTask />}
-        />
-        <Route path="/taskdetails" element={<TaskDetails />} />
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/home" element={<Home />} />
+          <Route
+            path="/createtask"
+            element={<CreateTask />}
+          />
+          <Route path="/taskdetails" element={<TaskDetails />} />
 
-        {/* <Route path="/contact" element={<Contact />} />
+          {/* <Route path="/contact" element={<Contact />} />
 
         <Route path="/about" element={<About />} /> */}
 
-        <Route path="*" element={<PageNotFound />} />
-      </Routes>
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
       </main>
       <Footer />
     </div>

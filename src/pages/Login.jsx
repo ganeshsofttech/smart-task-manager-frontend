@@ -6,29 +6,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  //   const handleSubmit = (e) => {
-  //     e.preventDefault();
-
-  //     console.log({
-  //       email,
-  //       password,
-  //     });
-  //   useEffect(() => {
-  //     axios
-  //       .post("/api/auth/login", {
-  //           email: email,
-  //           password: password
-  //         })
-  //       .then((response) => {
-  //         alert(response);
-  //       })
-  //       .catch((error) => {
-  //         console.log(error);
-  //         alert(error);
-  //       });
-  //   }, []);
-
-  //   };
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -40,20 +18,7 @@ const Login = () => {
           password,
         },
       );
-      // const response = await axios
-      //   .post("/api/auth/login", {
-      //     email,
-      //     password,
-      //   })
-      //   .then((response) => {
-      //     console.log("Login:", response.data);
-      //     alert("✅ Login successful.");
-      //   })
-      //   .catch((error) => {
-      //     console.log(error);
-      //     // alert(error);
-      //     alert(error.response?.data?.message || "Something went wrong");
-      //   });
+      
       console.log(response.data);
       // Get token from API response
       const token = response.data.token;
