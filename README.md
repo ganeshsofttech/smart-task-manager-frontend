@@ -36,3 +36,21 @@ ubuntu@ip-172-31-41-201:~$ history
    75  docker ps -a
    76  docker exec -it e61445874af8 bash
    77  history
+
+Dockerfile  - content
+FROM ubuntu
+RUN apt update
+RUN apt install apache2 -y
+#COPY source destination
+COPY . /var/www/html/
+#ENTRYPOINT = Commands to execute during container start time
+ENTRYPOINT apachectl -D FOREGROUND
+
+touch index.html - for creating a file
+nano index.html  - for writing content in file
+mkdir demo  - for creating a folder
+docker build -t webapp:1.1 - for building images
+docker run -it -d --name webapp-container1 -p 80:80 webapp:1.1 --- -i keeps STDIN open , -t - provide terminal interface inside container, -d- Runs container in the background, --name-Assign a custom name to the container. 
+docker stop webapp-container - to stop container
+docker logs webapp-container - to check logs
+docker rm webapp-container - to remove container
