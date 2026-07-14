@@ -16,7 +16,7 @@ export default function EmployeeList({
   };
   const deleteEmployee = (id) => {
     axios
-      .delete(`http://localhost:3000/api/employee/${id}`)
+      .delete(`/api/employee/${id}`)
       .then((response) => {
         console.log("Employee deleted:", response.data);
         setMessage(response.data.message);

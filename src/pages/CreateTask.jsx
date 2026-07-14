@@ -46,7 +46,7 @@ const CreateTask = () => {
       // Update
 
       api
-        .put(`http://localhost:3000/api/tasks/updateTask/${editId}`, task)
+        .put(`/api/tasks/updateTask/${editId}`, task)
         .then((response) => {
           console.log(response.data);
           alert("✅ Updated Successfully.");
@@ -68,7 +68,7 @@ const CreateTask = () => {
     } else {
       // axios.post("/api/tasks", task)
       api
-        .post("http://localhost:3000/api/tasks/createTask", task)
+        .post("/api/tasks/createTask", task)
         .then((response) => {
           console.log("Task Created:", response.data);
           alert("✅ Created Successfully.");
@@ -91,7 +91,7 @@ const CreateTask = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const res = await api.get("http://localhost:3000/api/auth/getUser");
+        const res = await api.get("/api/auth/getUser");
         setUsers(res.data);
       } catch (err) {
         console.error(err);

@@ -7,7 +7,7 @@ const TaskDashboard = () => {
   const [tasks, setTasks] = useState([]);
   useEffect(() => {
     api
-      .get("http://localhost:3000/api/tasks/getTask")
+      .get("/api/tasks/getTask")
       .then((response) => {
         setTasks(response.data);
       })
@@ -19,7 +19,7 @@ const TaskDashboard = () => {
 
   const deleteTask = (id) => {
     api
-      .delete(`http://localhost:3000/api/tasks/deleteTask/${id}`)
+      .delete(`/api/tasks/deleteTask/${id}`)
       .then((response) => {
         console.log("Task deleted:", response.data);
         alert(response.data.message);

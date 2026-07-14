@@ -24,10 +24,10 @@ const Register = () => {
     console.log(formData);
 
     // const response = await axios.post(
-    //     "http://localhost:3000/api/auth/register",formData,
+    //     "/api/auth/register",formData,
     //   );
     const response = axios
-      .post("http://localhost:3000/api/auth/register", formData)
+      .post("/api/auth/register", formData)
       .then((response) => {
         console.log("User Created:", response.data);
         alert("✅ User Created Successfully.");
