@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "../css/Register.css";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import api from "../Services/api";
 const Register = () => {
   const navigate = useNavigate();
@@ -48,7 +47,7 @@ const Register = () => {
       });
     // axios.post("/api/auth/register", formData)
   };
-
+  console.log(response);
   return (
     <div className="register-container">
       <div className="register-card">

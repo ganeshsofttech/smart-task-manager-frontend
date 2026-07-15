@@ -1,31 +1,25 @@
-import React, { useState } from "react";
-import Header from "./component/Header";
+import { useState } from "react";
+// import Header from "./component/Header";
 import Home from "./pages/Home";
-import About from "./pages/About";
+// import About from "./pages/About";
 import Login from "./pages/Login";
-import Contact from "./pages/Contact.jsx";
+// import Contact from "./pages/Contact.jsx";
 import TaskDetails from "./pages/TaskDetails.jsx";
 import CreateTask from "./pages/CreateTask.jsx";
 import "./index.css";
 import Footer from "./component/Footer.jsx";
 import Navbar from "./component/Navbar.jsx";
-import { Routes, Route, NavLink } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import PageNotFound from "./pages/PageNotFound.jsx";
 import Register from "./pages/Register.jsx";
 
 function App() {
-  const [currentPage, setCurrentPage] = useState("home");
+  
   const [theme, setTheme] = useState("light");
 
   return (
     <div className={`app ${theme}`}>
-
-
-      <Navbar
-        theme={theme}
-        setTheme={setTheme}
-
-      />
+      <Navbar theme={theme} setTheme={setTheme} />
       {/* <Navbar /> */}
       <hr />
       <main className="content">
@@ -34,10 +28,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/home" element={<Home />} />
-          <Route
-            path="/createtask"
-            element={<CreateTask />}
-          />
+          <Route path="/createtask" element={<CreateTask />} />
           <Route path="/taskdetails" element={<TaskDetails />} />
 
           {/* <Route path="/contact" element={<Contact />} />
@@ -51,6 +42,5 @@ function App() {
     </div>
   );
 }
-
 
 export default App;

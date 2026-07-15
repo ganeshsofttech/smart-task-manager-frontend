@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "../css/Login.css";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import api from "../Services/api";
 const Login = () => {
@@ -41,13 +40,13 @@ const Login = () => {
       alert(error.response?.data?.message || "Invalid credentials");
     }
   };
-  const logout = () => {
-    localStorage.removeItem("token");
+  // const logout = () => {
+  //   localStorage.removeItem("token");
 
-    localStorage.removeItem("user");
+  //   localStorage.removeItem("user");
 
-    window.location.href = "/login";
-  };
+  //   window.location.href = "/login";
+  // };
   return (
     <div className="login-container">
       <div className="login-card">

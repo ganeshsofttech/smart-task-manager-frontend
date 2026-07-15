@@ -1,14 +1,13 @@
 import { NavLink } from "react-router-dom";
-import ThemeToggle from "./ThemeToggle";
+// import ThemeToggle from "./ThemeToggle";
 import "../css/Navbar.css";
 import { useEffect, useState } from "react";
 
-import onboardingImage from "../assets/onboarding.png";
-
 export default function Navbar({ theme, setTheme }) {
   const [token, setToken] = useState(localStorage.getItem("token"));
-
+  
   useEffect(() => {
+    console.log(theme + setTheme("Dark"));
     const updateToken = () => {
       setToken(localStorage.getItem("token"));
     };
