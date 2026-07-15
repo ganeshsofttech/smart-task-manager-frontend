@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "../css/Register.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import api from "../Services/api";
 const Register = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -26,7 +27,7 @@ const Register = () => {
     // const response = await axios.post(
     //     "/api/auth/register",formData,
     //   );
-    const response = axios
+    const response = api
       .post("/api/auth/register", formData)
       .then((response) => {
         console.log("User Created:", response.data);
