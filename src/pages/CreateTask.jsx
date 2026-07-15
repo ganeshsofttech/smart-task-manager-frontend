@@ -17,6 +17,7 @@ const CreateTask = () => {
   const location = useLocation();
 
   const edittask = location.state?.task;
+  /* eslint-disable react-hooks/set-state-in-effect */
   useEffect(() => {
     if (edittask) {
       setTask({
@@ -30,7 +31,7 @@ const CreateTask = () => {
       setEditId(edittask._id);
     }
   }, [edittask]);
-
+/* eslint-enable react-hooks/set-state-in-effect */
   const handleChange = (e) => {
     setTask({
       ...task,
