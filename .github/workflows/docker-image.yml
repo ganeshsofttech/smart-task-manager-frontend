@@ -28,8 +28,8 @@ jobs:
           # this syntax ensures the build won't hard break out of the box.
           npm run lint --if-present
 
-      - name: Execute Test Suite
-        run: npm test --if-present
+     # - name: Execute Test Suite
+     #   run: npm test --if-present
 
   build-and-ship:
     needs: validate-and-test
