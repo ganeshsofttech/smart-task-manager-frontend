@@ -45,9 +45,9 @@ const Register = () => {
         // alert(error);
         alert(error.response?.data?.message || "Something went wrong");
       });
-    // axios.post("/api/auth/register", formData)
+     console.log(response);
   };
-  console.log(response);
+ 
   return (
     <div className="register-container">
       <div className="register-card">
