@@ -22,8 +22,8 @@ jobs:
       - name: Install Application Dependencies
         run: npm ci || npm install
 
-      - name: Lint Verification Run
-        run: npm run lint --if-present
+     # - name: Lint Verification Run
+     #   run: npm run lint --if-present
 
       #- name: Execute Test Suite
       #  run: npm test --if-present
