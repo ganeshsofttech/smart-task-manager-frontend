@@ -61,8 +61,8 @@ const TaskDashboard = () => {
     <div className="container py-4">
 
       {/* Header */}
-      <div className="dashboard-header d-flex justify-content-between align-items-center mb-4">
-        <h2>Task Dashboard</h2>
+      <div className="dashboard-header d-flex justify-content-between align-items-center mb-4 bg-light p-3 rounded-3 shadow-sm">
+        <h2 className="mb-0">Task Dashboard</h2>
 
         <button
           className="create-btn btn btn-success"
