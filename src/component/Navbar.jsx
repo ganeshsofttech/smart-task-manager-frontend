@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 // import ThemeToggle from "./ThemeToggle";
 import "../css/Navbar.css";
 import { useEffect, useState } from "react";
+import logoutIcon from "../assets/logoutIcon.png";
 
 export default function Navbar({ theme, setTheme }) {
   const [token, setToken] = useState(localStorage.getItem("token"));
@@ -57,14 +58,14 @@ export default function Navbar({ theme, setTheme }) {
               Home
             </NavLink>
 
-            <NavLink
+            <NavLink className="text-nowrap"
               to="/createtask"
               style={({ isActive }) => (isActive ? activeStyle : {})}
             >
               Create Task
             </NavLink>
 
-            <NavLink
+            <NavLink className="text-nowrap"
               to="/taskdetails"
               style={({ isActive }) => (isActive ? activeStyle : {})}
             >
@@ -84,14 +85,16 @@ export default function Navbar({ theme, setTheme }) {
         >
           About
         </NavLink> */}
-            <button className="logout-btn"
+            <button className="btn bg-transparent border-0 p-0"
+            title="Logout"
               onClick={() => {
                 localStorage.removeItem("token");
                 localStorage.removeItem("user");
                 window.location.href = "/";
               }}
             >
-              Logout
+             <img src={logoutIcon} alt="Logout" width="20" height="20"/>
+              
             </button>
 
             {/* <ThemeToggle theme={theme} setTheme={setTheme} /> */}
