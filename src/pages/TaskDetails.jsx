@@ -105,7 +105,7 @@ const TaskDashboard = () => {
       </div>
 
       {/* Filter Row */}
-      <div className="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-4">
+      <div className="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-4 bg-light">
 
         <h5 className="mb-0">
           Showing {filteredTasks.length} Tasks
@@ -136,7 +136,7 @@ const TaskDashboard = () => {
           </button>
 
           <button
-            className={`btn ${
+            className={`btn text-nowrap ${
               filter === "In Progress"
                 ? "btn-primary"
                 : "btn-outline-secondary"
