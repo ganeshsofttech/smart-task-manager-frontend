@@ -186,7 +186,7 @@ const CreateTask = () => {
             </select>
 
           </div>
-          <button type="submit" className="submit-btn">
+          <button type="submit" className="submit-btn btn btn-success">
             {editId ? "Update Task" : "Create Task"}
           </button>
           {/* <button type="submit">Create Task</button> */}

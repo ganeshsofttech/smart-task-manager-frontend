@@ -65,7 +65,7 @@ const TaskDashboard = () => {
         <h2>Task Dashboard</h2>
 
         <button
-          className="create-btn"
+          className="create-btn btn btn-success"
           onClick={() => navigate("/createtask")}
         >
           + Create Task

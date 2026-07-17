@@ -21,7 +21,7 @@ function App() {
     <div className={`app ${theme}`}>
       <Navbar theme={theme} setTheme={setTheme} />
       {/* <Navbar /> */}
-      <hr />
+      
       <main className="content">
         <Routes>
           <Route path="/" element={<Login />} />
